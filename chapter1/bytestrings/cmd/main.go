@@ -1,6 +1,6 @@
 package main
 
-import "github.com/PacktPublishing/Go-Programming-Cookbook-Second-Edition/bytestrings"
+import "github.com/PacktPublishing/Go-Programming-Cookbook-Second-Edition/chapter1/bytestrings"
 
 func main() {
 	err := bytestrings.WorkWithBuffer()
