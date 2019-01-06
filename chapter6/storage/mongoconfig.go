@@ -1,22 +1,31 @@
 package storage
 
-import mgo "gopkg.in/mgo.v2"
+import (
+	"context"
+	"time"
+
+	"github.com/mongodb/mongo-go-driver/mongo"
+)
 
 // MongoStorage implements our storage interface
 type MongoStorage struct {
-	*mgo.Session
+	*mongo.Client
 	DB         string
 	Collection string
 }
 
 // NewMongoStorage initializes a MongoStorage
-func NewMongoStorage(connection, db, collection string) (*MongoStorage, error) {
-	session, err := mgo.Dial("localhost")
+func NewMongoStorage(ctx context.Context, connection, db, collection string) (*MongoStorage, error) {
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	client, err := mongo.Connect(ctx, "mongodb://localhost")
 	if err != nil {
 		return nil, err
 	}
+
 	ms := MongoStorage{
-		Session:    session,
+		Client:     client,
 		DB:         db,
 		Collection: collection,
 	}

@@ -3,15 +3,15 @@ package storage
 import (
 	"context"
 
-	"gopkg.in/mgo.v2/bson"
+	"github.com/mongodb/mongo-go-driver/bson"
 )
 
 // GetByName queries mongodb for an item with
 // the correct name
 func (m *MongoStorage) GetByName(ctx context.Context, name string) (*Item, error) {
-	c := m.Session.DB(m.DB).C(m.Collection)
+	c := m.Client.Database(m.DB).Collection(m.Collection)
 	var i Item
-	if err := c.Find(bson.M{"name": name}).One(&i); err != nil {
+	if err := c.FindOne(ctx, bson.M{"name": name}).Decode(&i); err != nil {
 		return nil, err
 	}
 
@@ -20,6 +20,7 @@ func (m *MongoStorage) GetByName(ctx context.Context, name string) (*Item, error
 
 // Put adds an item to our mongo instance
 func (m *MongoStorage) Put(ctx context.Context, i *Item) error {
-	c := m.Session.DB(m.DB).C(m.Collection)
-	return c.Insert(i)
+	c := m.Client.Database(m.DB).Collection(m.Collection)
+	_, err := c.InsertOne(ctx, i)
+	return err
 }

@@ -1,12 +1,20 @@
 package mongodb
 
-import mgo "gopkg.in/mgo.v2"
+import (
+	"context"
+	"time"
+
+	"github.com/mongodb/mongo-go-driver/mongo"
+)
 
 // Setup initializes a redis client
-func Setup() (*mgo.Session, error) {
-	session, err := mgo.Dial("localhost")
+func Setup(ctx context.Context) (*mongo.Client, error) {
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
+	defer cancel()
+
+	client, err := mongo.Connect(ctx, "mongodb://localhost")
 	if err != nil {
 		return nil, err
 	}
-	return session, nil
+	return client, nil
 }

@@ -8,7 +8,8 @@ import (
 // Exec initializes storage, then performs operations
 // using the storage interface
 func Exec() error {
-	m, err := NewMongoStorage("localhost", "gocookbook", "items")
+	ctx := context.Background()
+	m, err := NewMongoStorage(ctx, "localhost", "gocookbook", "items")
 	if err != nil {
 		return err
 	}
@@ -16,7 +17,7 @@ func Exec() error {
 		return err
 	}
 
-	if err := m.Session.DB(m.DB).C(m.Collection).DropCollection(); err != nil {
+	if err := m.Client.Database(m.DB).Collection(m.Collection).Drop(ctx); err != nil {
 		return err
 	}
 

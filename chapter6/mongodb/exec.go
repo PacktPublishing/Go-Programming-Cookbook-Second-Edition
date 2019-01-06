@@ -1,9 +1,10 @@
 package mongodb
 
 import (
+	"context"
 	"fmt"
 
-	"gopkg.in/mgo.v2/bson"
+	"github.com/mongodb/mongo-go-driver/bson"
 )
 
 // State is our data model
@@ -14,24 +15,27 @@ type State struct {
 
 // Exec creates then queries an Example
 func Exec() error {
-	db, err := Setup()
+	ctx := context.Background()
+	db, err := Setup(ctx)
 	if err != nil {
 		return err
 	}
 
-	conn := db.DB("gocookbook").C("example")
+	conn := db.Database("gocookbook").Collection("example")
+
+	vals := []interface{}{&State{"Washington", 7062000}, &State{"Oregon", 3970000}}
 
 	// we can inserts many rows at once
-	if err := conn.Insert(&State{"Washington", 7062000}, &State{"Oregon", 3970000}); err != nil {
+	if _, err := conn.InsertMany(ctx, vals); err != nil {
 		return err
 	}
 
 	var s State
-	if err := conn.Find(bson.M{"name": "Washington"}).One(&s); err != nil {
+	if err := conn.FindOne(ctx, bson.M{"name": "Washington"}).Decode(&s); err != nil {
 		return err
 	}
 
-	if err := conn.DropCollection(); err != nil {
+	if err := conn.Drop(ctx); err != nil {
 		return err
 	}
 
