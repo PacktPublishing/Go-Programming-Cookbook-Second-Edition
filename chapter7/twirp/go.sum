@@ -1,0 +1,4 @@
+github.com/golang/protobuf v1.2.0 h1:P3YflyNX/ehuJFLhxviNdFxQPkGK5cDcApsge1SqnvM=
+github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/twitchtv/twirp v5.5.1+incompatible h1:ECRuN+ET2/I2udb3XWKIg6OJQO5ht8SD0ONNYHYr2Es=
+github.com/twitchtv/twirp v5.5.1+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
