@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package keyvalue;
+
+service KeyValue{
+    rpc Set(SetKeyValueRequest) returns (KeyValueResponse){}
+    rpc Get(GetKeyValueRequest) returns (KeyValueResponse){}
+}
+
+message SetKeyValueRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message GetKeyValueRequest{
+    string key = 1;
+}
+
+message KeyValueResponse{
+    string success = 1;
+    string value = 2;
+}
