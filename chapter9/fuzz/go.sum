@@ -1,0 +1,3 @@
+github.com/PacktPublishing/Go-Programming-Cookbook-Second-Edition v0.0.0-20190211024635-69f2ed8ed668 h1:Nrgf4dq7TpuQS3IUUGAZcmo7yqObBSZ4KVZZhX4R8w8=
+github.com/dvyukov/go-fuzz v0.0.0-20190304103827-b73ac4d3ed1c h1:p5WwV96EOZzcOIrKANwfxLMoclF0QFKHVOATvcYF7AU=
+github.com/dvyukov/go-fuzz v0.0.0-20190304103827-b73ac4d3ed1c/go.mod h1:11Gm+ccJnvAhCNLlf5+cS9KjtbaD5I5zaZpFMsTHWTw=
