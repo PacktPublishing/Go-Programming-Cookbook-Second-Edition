@@ -1,2 +1,4 @@
+github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 h1:clC1lXBpe2kTj2VHdaIu9ajZQe4kcEY9j0NsnDDBZ3o=
+github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385/go.mod h1:0vRUJqYpeSZifjYj7uP3BG/gKcuzL9xWVV/Y+cK33KM=
 github.com/unrolled/render v0.0.0-20190117215946-449f39850074 h1:Z2Io8Xv8S7HyOpBqaED5yqn2+NNrzWiS8CrTasc1mxQ=
 github.com/unrolled/render v0.0.0-20190117215946-449f39850074/go.mod h1:tu82oB5W2ykJRVioYsB+IQKcft7ryBr7w12qMBUPyXg=
