@@ -1,16 +1,11 @@
 package main
 
 import (
-	"github.com/PacktPublishing/Go-Programming-Cookbook-Second-Edition/chapter11/orchestrate"
-	mgo "gopkg.in/mgo.v2"
+	mongodb "github.com/PacktPublishing/Go-Programming-Cookbook-Second-Edition/chapter11/orchestrate"
 )
 
 func main() {
-	session, err := mgo.Dial("mongodb")
-	if err != nil {
-		panic(err)
-	}
-	if err := orchestrate.ConnectAndQuery(session); err != nil {
+	if err := mongodb.Exec("mongodb://mongodb:27017"); err != nil {
 		panic(err)
 	}
 }
