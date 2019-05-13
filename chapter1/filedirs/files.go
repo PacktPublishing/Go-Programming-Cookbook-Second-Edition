@@ -10,7 +10,7 @@ import (
 // Capitalizer opens a file, reads the contents,
 // then writes those contents to a second file
 func Capitalizer(f1 *os.File, f2 *os.File) error {
-	if _, err := f1.Seek(0, 0); err != nil {
+	if _, err := f1.Seek(0, io.SeekStart); err != nil {
 		return err
 	}
 
