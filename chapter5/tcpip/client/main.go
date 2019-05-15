@@ -31,7 +31,7 @@ func main() {
 		// read back the response
 		status, err := bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
-			fmt.Printf("encountered an error reading reasponse: %s\n", err.Error())
+			fmt.Printf("encountered an error reading response: %s\n", err.Error())
 		}
 		fmt.Printf("Received back: %s", status)
 		// close up the finished connection
