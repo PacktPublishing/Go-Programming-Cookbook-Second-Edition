@@ -32,9 +32,6 @@ func ConvertStringDollarsToPennies(amount string) (int64, error) {
 			return 0, errors.New("invalid cents")
 		}
 		r = groups[1]
-		if len(r) > 2 {
-			r = r[:2]
-		}
 	}
 
 	// pad with 0, this will be

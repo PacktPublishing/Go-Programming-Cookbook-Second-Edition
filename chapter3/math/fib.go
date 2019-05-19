@@ -16,7 +16,7 @@ func init() {
 // int64 will quickly overflow
 func Fib(n int) *big.Int {
 	if n < 0 {
-		return nil
+		return big.NewInt(1)
 	}
 
 	// base case

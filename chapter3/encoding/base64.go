@@ -37,11 +37,12 @@ func Base64ExampleEncoder() error {
 	// encode into the buffer
 	encoder := base64.NewEncoder(base64.StdEncoding, &buffer)
 
-	// be sure to close
-	if err := encoder.Close(); err != nil {
+	if _, err := encoder.Write([]byte("encoding some other data")); err != nil {
 		return err
 	}
-	if _, err := encoder.Write([]byte("encoding some other data")); err != nil {
+
+	// be sure to close
+	if err := encoder.Close(); err != nil {
 		return err
 	}
 
