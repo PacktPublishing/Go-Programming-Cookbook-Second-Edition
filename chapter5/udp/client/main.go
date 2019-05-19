@@ -1,14 +1,14 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net"
 )
 
 const addr = "localhost:8888"
 
 func main() {
-	log.Printf("client for server url: %s\n", addr)
+	fmt.Printf("client for server url: %s\n", addr)
 
 	addr, err := net.ResolveUDPAddr("udp", addr)
 	if err != nil {
@@ -31,7 +31,6 @@ func main() {
 		if err != nil {
 			continue
 		}
-		log.Printf("%s\n", string(msg[:n]))
+		fmt.Printf("%s\n", string(msg[:n]))
 	}
-
 }
