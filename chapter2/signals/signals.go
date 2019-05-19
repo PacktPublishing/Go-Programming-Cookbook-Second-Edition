@@ -43,7 +43,7 @@ func main() {
 	go CatchSig(signals, done)
 
 	fmt.Println("Press ctrl-c to terminate...")
-	// the program blogs until someone writes to done
+	// the program blocks until someone writes to done
 	<-done
 	fmt.Println("Done!")
 
