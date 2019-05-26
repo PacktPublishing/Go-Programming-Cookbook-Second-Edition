@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/gorilla/websocket"
 )
 
-// upgrade takes an http connection and converts it
+// upgrader takes an http connection and converts it
 // to a websocket one, we're using some recommended
 // basic buffer sizes
 var upgrader = websocket.Upgrader{
@@ -36,11 +35,4 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-}
-
-func main() {
-	fmt.Println("Listening on port :8000")
-	// we mount our single handler on port localhost:8000 to handle all
-	// requests
-	log.Panic(http.ListenAndServe("localhost:8000", http.HandlerFunc(wsHandler)))
 }
