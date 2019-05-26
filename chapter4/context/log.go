@@ -41,6 +41,5 @@ func WithFields(ctx context.Context, fields log.Fielder) context.Context {
 	for key, val := range fields.Fields() {
 		(*f)[key] = val
 	}
-	ctx = context.WithValue(ctx, logFields, f)
-	return ctx
+	return context.WithValue(ctx, logFields, f)
 }

@@ -21,7 +21,7 @@ func (hook *Hook) Levels() []logrus.Level {
 
 // Logrus demonstrates some basic logrus functionality
 func Logrus() {
-	// we're emitting in json format
+	// we're emitting in text format
 	logrus.SetFormatter(&logrus.TextFormatter{})
 	logrus.SetLevel(logrus.InfoLevel)
 	logrus.AddHook(&Hook{"123"})

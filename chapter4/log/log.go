@@ -20,7 +20,7 @@ func Log() {
 
 	logger.SetPrefix("new logger: ")
 
-	logger.Printf("you can also add args(%v) and use Fataln to log and crash", true)
+	logger.Printf("you can also add args(%v) and use Fatalln to log and crash", true)
 
 	fmt.Println(buf.String())
 }
