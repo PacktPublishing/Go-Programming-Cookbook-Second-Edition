@@ -11,7 +11,7 @@ func TestExec(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if err := Exec(); (err != nil) != tt.wantErr {
+			if err := Exec("mongodb://localhost"); (err != nil) != tt.wantErr {
 				t.Errorf("Exec() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})

@@ -14,7 +14,7 @@ func TestSetup(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, err := Setup(context.Background())
+			_, err := Setup(context.Background(), "mongodb://localhost")
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Setup() error = %v, wantErr %v", err, tt.wantErr)
 				return
