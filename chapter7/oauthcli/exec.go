@@ -7,9 +7,9 @@ import (
 	"os"
 )
 
-// GetUsers uses an initialized oauth2 client to get
+// GetUser uses an initialized oauth2 client to get
 // information about a user
-func GetUsers(client *http.Client) error {
+func GetUser(client *http.Client) error {
 	url := fmt.Sprintf("https://api.github.com/user")
 
 	resp, err := client.Get(url)
