@@ -15,7 +15,7 @@ type KeyValue struct {
 	m     map[string]string
 }
 
-// NewKeyValue initializes the map and controller
+// NewKeyValue initializes the KeyValue struct and its map
 func NewKeyValue() *KeyValue {
 	return &KeyValue{
 		m: make(map[string]string),

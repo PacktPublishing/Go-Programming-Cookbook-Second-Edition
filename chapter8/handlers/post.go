@@ -40,5 +40,7 @@ func GreetingHandler(w http.ResponseWriter, r *http.Request) {
 	gr.Payload.Greeting = greeting
 	if payload, err := json.Marshal(gr); err == nil {
 		w.Write(payload)
+	} else if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 	}
 }

@@ -21,6 +21,8 @@ func (c *Controller) SetValue(w http.ResponseWriter, r *http.Request) {
 	p := Payload{Value: value}
 	if payload, err := json.Marshal(p); err == nil {
 		w.Write(payload)
+	} else if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 	}
 
 }
