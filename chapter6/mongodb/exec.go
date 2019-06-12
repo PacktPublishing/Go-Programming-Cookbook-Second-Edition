@@ -21,21 +21,21 @@ func Exec(address string) error {
 		return err
 	}
 
-	conn := db.Database("gocookbook").Collection("example")
+	coll := db.Database("gocookbook").Collection("example")
 
 	vals := []interface{}{&State{"Washington", 7062000}, &State{"Oregon", 3970000}}
 
 	// we can inserts many rows at once
-	if _, err := conn.InsertMany(ctx, vals); err != nil {
+	if _, err := coll.InsertMany(ctx, vals); err != nil {
 		return err
 	}
 
 	var s State
-	if err := conn.FindOne(ctx, bson.M{"name": "Washington"}).Decode(&s); err != nil {
+	if err := coll.FindOne(ctx, bson.M{"name": "Washington"}).Decode(&s); err != nil {
 		return err
 	}
 
-	if err := conn.Drop(ctx); err != nil {
+	if err := coll.Drop(ctx); err != nil {
 		return err
 	}
 
