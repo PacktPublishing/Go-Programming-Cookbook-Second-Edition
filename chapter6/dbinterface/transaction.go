@@ -17,5 +17,4 @@ type Transaction interface {
 	DB
 	Commit() error
 	Rollback() error
-	Stmt(stmt *sql.Stmt) *sql.Stmt
 }

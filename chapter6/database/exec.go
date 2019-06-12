@@ -18,7 +18,7 @@ func Exec(db *sql.DB) error {
 		return err
 	}
 
-	if err := Query(db); err != nil {
+	if err := Query(db, "Aaron"); err != nil {
 		return err
 	}
 	return nil

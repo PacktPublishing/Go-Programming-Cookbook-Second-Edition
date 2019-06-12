@@ -16,10 +16,10 @@ func ExecWithTimeout() error {
 	ctx := context.Background()
 
 	// we want to timeout immediately
-	ctx, can := context.WithDeadline(ctx, time.Now())
+	ctx, cancel := context.WithDeadline(ctx, time.Now())
 
 	// call cancel after we complete
-	defer can()
+	defer cancel()
 
 	// our transaction is context aware
 	_, err = db.BeginTx(ctx, nil)

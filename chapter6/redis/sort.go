@@ -13,21 +13,25 @@ func Sort() error {
 		return err
 	}
 
-	if err := conn.LPush("list", 1).Err(); err != nil {
+	listkey := "list"
+	if err := conn.LPush(listkey, 1).Err(); err != nil {
 		return err
 	}
-	if err := conn.LPush("list", 3).Err(); err != nil {
+	// this will clean up the list key if any of the subsequent commands error
+	defer conn.Del(listkey)
+
+	if err := conn.LPush(listkey, 3).Err(); err != nil {
 		return err
 	}
-	if err := conn.LPush("list", 2).Err(); err != nil {
+	if err := conn.LPush(listkey, 2).Err(); err != nil {
 		return err
 	}
 
-	res, err := conn.Sort("list", redis.Sort{Order: "ASC"}).Result()
+	res, err := conn.Sort(listkey, redis.Sort{Order: "ASC"}).Result()
 	if err != nil {
 		return err
 	}
 	fmt.Println(res)
-	conn.Del("list")
+
 	return nil
 }

@@ -19,7 +19,7 @@ func main() {
 	// this wont do anything if commit is successful
 	defer tx.Rollback()
 
-	if err := dbinterface.Exec(db); err != nil {
+	if err := dbinterface.Exec(tx); err != nil {
 		panic(err)
 	}
 	if err := tx.Commit(); err != nil {

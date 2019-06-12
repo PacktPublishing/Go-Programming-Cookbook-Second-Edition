@@ -7,8 +7,7 @@ import (
 )
 
 // Query grabs a new connection
-// creates tables, and later drops them
-// and issues some queries
+// and issues some queries printing the results
 func Query(db DB) error {
 	name := "Aaron"
 	rows, err := db.Query("SELECT name, created FROM example where name=?", name)

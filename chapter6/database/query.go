@@ -10,8 +10,7 @@ import (
 // Query grabs a new connection
 // creates tables, and later drops them
 // and issues some queries
-func Query(db *sql.DB) error {
-	name := "Aaron"
+func Query(db *sql.DB, name string) error {
 	rows, err := db.Query("SELECT name, created FROM example where name=?", name)
 	if err != nil {
 		return err
