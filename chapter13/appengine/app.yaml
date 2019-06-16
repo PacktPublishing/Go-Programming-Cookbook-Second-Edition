@@ -1,0 +1,9 @@
+runtime: go112
+
+manual_scaling:
+  instances: 1
+
+#[START env_variables]
+env_variables:
+  GCLOUD_DATASET_ID: go-cookbook
+#[END env_variables]

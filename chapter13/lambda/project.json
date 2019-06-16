@@ -1,0 +1,8 @@
+{
+  "name": "go-cookbook",
+  "description": "Demonstrating Apex with the Go Cookbook",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::551033007273:role/go-cookbook_lambda_function",
+  "environment": {}
+}

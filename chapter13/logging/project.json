@@ -1,0 +1,8 @@
+{
+  "name": "logging",
+  "description": "An example of apex logging and metrics",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::551033007273:role/logging_lambda_function",
+  "environment": {}
+}
