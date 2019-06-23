@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/raft"
 )
 
-// keep a map of rafts for ltaer
+// keep a map of rafts for later
 var rafts map[raft.ServerAddress]*raft.Raft
 
 func init() {

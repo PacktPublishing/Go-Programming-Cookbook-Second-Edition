@@ -33,8 +33,8 @@ func (c *CrawlError) Error() string {
 	return fmt.Sprintf("All Errors: %s", strings.Join(c.Errors, ","))
 }
 
-// Valid can be used to determine if
+// Present can be used to determine if
 // we should return this
-func (c *CrawlError) Valid() bool {
+func (c *CrawlError) Present() bool {
 	return len(c.Errors) != 0
 }

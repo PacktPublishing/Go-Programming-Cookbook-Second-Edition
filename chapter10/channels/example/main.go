@@ -21,5 +21,5 @@ func main() {
 	time.Sleep(2 * time.Second)
 	done <- true
 	cancel()
-	time.Sleep(1 * time.Second)
+	time.Sleep(3 * time.Second)
 }

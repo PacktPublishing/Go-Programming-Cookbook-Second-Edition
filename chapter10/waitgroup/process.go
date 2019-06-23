@@ -29,7 +29,8 @@ func Crawl(sites []string) ([]int, error) {
 		}(v)
 	}
 	wg.Wait()
-	if cerr.Valid() {
+	// we encountered a crawl error
+	if cerr.Present() {
 		return resps, cerr
 	}
 	log.Printf("completed crawling in %s", time.Since(start))
