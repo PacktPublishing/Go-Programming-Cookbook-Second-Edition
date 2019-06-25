@@ -26,6 +26,6 @@ func (c *KafkaController) Handler(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("msg must be set"))
 		return
 	}
-	c.producer.Input() <- &sarama.ProducerMessage{Topic: "example", Key: nil, Value: sarama.StringEncoder(r.FormValue("msg"))}
+	c.producer.Input() <- &sarama.ProducerMessage{Topic: "example", Key: nil, Value: sarama.StringEncoder(msg)}
 	w.WriteHeader(http.StatusOK)
 }

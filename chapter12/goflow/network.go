@@ -4,7 +4,7 @@ import (
 	"github.com/trustmaster/goflow"
 )
 
-// NewEncodingApp wires together the componets
+// NewEncodingApp wires together the components
 func NewEncodingApp() *goflow.Graph {
 	e := goflow.NewGraph()
 

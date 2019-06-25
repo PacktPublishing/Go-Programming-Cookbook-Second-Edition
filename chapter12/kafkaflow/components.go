@@ -14,7 +14,8 @@ type Upper struct {
 	Res chan<- string
 }
 
-// Process does the encoding then pushes the result onto Res
+// Process loops over the input values and writes the upper
+// case string version of them to Res
 func (e *Upper) Process() {
 	for val := range e.Val {
 		e.Res <- strings.ToUpper(val)
@@ -27,7 +28,7 @@ type Printer struct {
 	Line <-chan string
 }
 
-// OnLine Prints the current line received
+// Process Prints the current line received
 func (p *Printer) Process() {
 	for line := range p.Line {
 		fmt.Println(line)
