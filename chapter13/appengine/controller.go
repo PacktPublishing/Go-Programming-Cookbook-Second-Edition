@@ -18,6 +18,7 @@ type Controller struct {
 func (c *Controller) handle(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "invalid method", http.StatusMethodNotAllowed)
+		return
 	}
 
 	ctx := context.Background()
@@ -27,7 +28,7 @@ func (c *Controller) handle(w http.ResponseWriter, r *http.Request) {
 	if message := r.FormValue("message"); message != "" {
 		if err := c.storeMessage(ctx, message); err != nil {
 			log.Printf("could not store message: %v", err)
-			http.Error(w, fmt.Sprintf("could not store message"), http.StatusInternalServerError)
+			http.Error(w, "could not store message", http.StatusInternalServerError)
 			return
 		}
 	}
