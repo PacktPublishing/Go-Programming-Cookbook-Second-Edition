@@ -19,6 +19,7 @@ func AddItems(ctx *fasthttp.RequestCtx) {
 	item, ok := ctx.UserValue("item").(string)
 	if !ok {
 		ctx.SetStatusCode(fasthttp.StatusBadRequest)
+		return
 	}
 
 	AddItem(item)

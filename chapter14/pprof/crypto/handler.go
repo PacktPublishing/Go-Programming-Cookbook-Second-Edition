@@ -8,7 +8,13 @@ import (
 
 // GuessHandler checks if ?message=password
 func GuessHandler(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
+	if err := r.ParseForm(); err != nil {
+		// if we can't parse the form
+		// we'll assume it is malformed
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("error reading guess"))
+		return
+	}
 
 	msg := r.FormValue("message")
 
