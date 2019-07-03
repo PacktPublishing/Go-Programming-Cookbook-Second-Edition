@@ -34,7 +34,6 @@ func (c *Controller) handle(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// get the current messages and display them
-	fmt.Fprintln(w, "Messages:")
 	messages, err := c.queryMessages(ctx, 10)
 	if err != nil {
 		log.Printf("could not get messages: %v", err)
@@ -42,6 +41,7 @@ func (c *Controller) handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Fprintln(w, "Messages:")
 	for _, message := range messages {
 		fmt.Fprintln(w, message.Message)
 	}
