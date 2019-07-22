@@ -54,8 +54,6 @@ With the following software and hardware list you can run all code files present
 | 11 | Docker - latest community edition version | Windows, macOS and Linux |
 | 11 | Prometheus - latest version | Windows, macOS and Linux |
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it]().
-
 ### Related products
 * Learn Data Structures and Algorithms with Golang  [[Packt]](https://www.packtpub.com/application-development/learn-data-structures-and-algorithms-golang?utm_source=github&utm_medium=repository&utm_campaign=9781789618501) [[Amazon]](https://www.amazon.com/dp/1789618509)
 
