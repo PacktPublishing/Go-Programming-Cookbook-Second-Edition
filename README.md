@@ -41,6 +41,11 @@ This book is aimed for web developers, programmers, and enterprise developers. B
 
 This book serves as a good reference for Go developers who are already proficient but need a quick reminder, example, or reference. With the open source repository, it should be possible to share these examples quickly with a team as well. If you are looking for quick solutions to common and not-so-common problems in Go programming, this book is for you.
 
+## Errata
+The following content at Page 323 under *How it works...* should read as:
+Consul provides a robust Go API library. It can feel daunting when you're starting for the first time, but this recipe shows how you might approach wrapping it. Configuring Consul further is beyond the scope of this recipe; this shows the basics of registering a service and querying for other services when given a key and tag. It would be possible to use this to register new microservices at startup time, query for all dependent services, and deregister at shutdown. You may also want to cache this information so that you're not hitting Consul for every request, but this recipe provides the basic tools that you can expand upon. The Consul agent also makes these repeated requests
+fast and efficient (https://www.consul.io/intro/getting-started/agent.html).
+
 With the following software and hardware list you can run all code files present in the book (Chapter 1-).
 ### Software and Hardware List
 | Chapter | Software required | OS required |
