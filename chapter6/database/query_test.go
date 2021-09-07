@@ -37,7 +37,7 @@ func TestQuery(t *testing.T) {
 			if tt.queryErr {
 				m.WillReturnError(errors.New("failed"))
 			}
-			if err := Query(tt.args.db); (err != nil) != tt.wantErr {
+			if err := Query(tt.args.db, "something"); (err != nil) != tt.wantErr {
 				t.Errorf("Query() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
